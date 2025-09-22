@@ -1,0 +1,69 @@
+### **1. Lesson Overview**
+*   In this lesson, we will discuss:
+    *   Monitoring a fleet of databases.
+    *   Metric collections.
+    *   Alarm definitions.
+    *   Alert log views.
+    *   Dashboards.
+
+### **2. Metrics Collections**
+*   Metrics collections for resources allow insights into performance and configuration for your cloud databases.
+*   In-depth analysis assists in diagnosing and troubleshooting performance issues.
+*   The dimensions associated with the metrics allow for filtering and creating alarms based on metric thresholds.
+*   Metric namespaces hold associated metrics for logical configurations of monitoring.
+
+### **3. Alarm Definitions**
+*   Alarms can be created based on collected metrics.
+*   To define alarms, you use the following attributes:
+    *   **Metric:** The name of the collected metric.
+    *   **Interval:** How often the metric is evaluated in the alarm.
+    *   **Statistics:** The computation for evaluating the metric.
+    *   **Resource:** The resource with which the alarm is associated (can be based on OCID, resource name, resource type).
+    *   **Trigger rule:** What triggers the alarm? The threshold is defined for the metric here.
+*   **Alarm Notification Definition:**
+    *   **Destination:** Where the alarm is sent once triggered.
+    *   **Compartment:** In which compartment the alarm notification is created.
+    *   **Protocol:** How the alarm is sent to the destination (e.g., email, PagerDuty, HTTPS).
+
+### **4. Alert Log Views**
+*   Within the Database Management console, you can access the database alert log.
+*   This feature includes abilities to filter the alerts located within the alert log based on:
+    *   Criticality.
+    *   Search parameters, including custom strings.
+*   An **attention log viewer** is available in databases 21c and later.
+*   It provides similar functionality for the most pertinent information processed in the databases.
+
+### **5. Performance Dashboards**
+*   Performance dashboards can be used in investigations for a single database or for an entire fleet of databases.
+*   **Out-of-the-box dashboards** are available to quickly assess the overall performance for your environments.
+*   The option to **create custom dashboards** enables modifying and tailoring widgets to:
+    *   Focus on the most important resources.
+    *   Assist in triaging performance investigations for specific application workflows.
+*   The dashboard framework allows quick, easy editing of your own dashboards with customizations to:
+    *   Layout.
+    *   Metric groupings from OCI namespaces.
+*   These custom dashboards can be:
+    *   Shared via PDFs.
+    *   Distributed to other OCI users by an export-import JSON feature.
+*   Custom dashboards can be built:
+    *   From scratch.
+    *   By duplicating and modifying the out-of-the-box dashboards provided by the Database Management service.
+
+### **6. Widgets and Filters**
+*   **Widgets** are miniature reports of metric collections that can be displayed in various chart configurations.
+*   The widgets can be grouped together to share filter parameters, which allows for easy toggling between:
+    *   OCI regions.
+    *   Compartment resources.
+*   **Filters** allow:
+    *   Narrowing the scope of the resources presented in the dashboard.
+    *   Selecting multiple databases to be displayed in the same widget for a fleetwide comparison of resources.
+
+### **7. Preferred Credentials**
+*   Preferred credentials for your database environment can be set to allow ease of access to the monitoring solution.
+*   Three separate levels of credentials can be configured to layer access privileges and separate roles in the management of your database environment:
+    1.  **Basic:**
+        *   This is automatically set when enabling the service for the database.
+    2.  **Advanced Diagnostics:**
+        *   Configure to quickly utilize credentials for diagnostic features and read operations needed for the monitoring solution.
+    3.  **Administration:**
+        *   Autofill database credentials to perform write operations in the database.

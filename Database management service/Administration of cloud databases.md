@@ -1,0 +1,86 @@
+
+### **1. Lesson Overview**
+*   In this lesson, we will discuss:
+    *   Schema management.
+    *   Storage management.
+    *   Optimizer statistics.
+    *   Database job configurations in Database Management.
+
+### **2. Routine Administration & Job Automation**
+*   Database Management service can be used to perform:
+    *   Routine database administration tasks.
+    *   Schema updates.
+    *   Storage changes on a database or databases.
+*   Job automation abilities can be used to automate routine tasks by defining database jobs that can run against a set of databases on a schedule.
+*   SQL scripts can be packaged into templates to run in bulk across databases in a group to automate scheduled database maintenance tasks.
+*   You can also create templates to address needs across compartments within a group.
+*   You can apply jobs as templates to run your own SQL scripts against a single database or a group.
+
+### **3. Schema Management: Users**
+*   In the **users section**, you can view the users created in the Oracle Database.
+*   You can identify the:
+    *   User account status.
+    *   Expiration date.
+    *   Profile.
+*   In the **user details section**, you can view:
+    *   System, object, and consumer group privileges.
+    *   Roles.
+    *   Proxy users.
+
+### **4. Required Privileges for Schema Management**
+*   To perform schema management tasks, you must have these privileges already assigned:
+    *   `DBA_USERS`
+    *   `DBA_ROLE_PRIVS`
+    *   `DBA_TAB_PRIVS`
+    *   `DBA_SYS_PRIVS`
+    *   `DBA_RSRC_CONSUMER_GROUP_PRIVS`
+    *   `PROXY_USERS`
+    *   `DBA_CONTAINER_DATA`
+
+### **5. Storage Management: Tablespace Monitoring**
+*   Tablespace monitoring tasks allow for basic administration and visibility into tablespace usage and allocation.
+*   The tasks include:
+    *   Create, modify, and drop tablespaces.
+*   It supports both:
+    *   OMF (Oracle Managed Files) and ASM (Automatic Storage Management).
+    *   Big files.
+*   You can also set the default tablespace here.
+
+### **6. Optimizer Statistics Monitoring**
+*   It is important to monitor and understand if:
+    *   There are any stale statistics that may be impacting database performance.
+    *   There are any missing statistics.
+*   Database Management now supports the monitoring of optimizer statistics to solve these use cases.
+
+### **7. Optimizer Statistics Advisor**
+*   Oracle Database has an advisor called the **Optimizer Statistics Advisor**.
+*   Its purpose is to help improve the quality of statistics in the database.
+*   This diagnostic software:
+    *   Analyzes information in the data dictionary.
+    *   Assesses the quality of statistics.
+    *   Discovers how statistics are being gathered.
+*   It reports on:
+    *   Poor statistics.
+    *   Missing statistics.
+*   It generates recommendations to resolve these problems.
+*   Using Database Management, you can:
+    *   Monitor and analyze Optimizer Statistics Advisor tasks.
+    *   Implement Optimizer Statistics Advisor recommendations.
+
+### **8. Database Scheduler Jobs**
+*   Database scheduler jobs can be configured in the DBM console for:
+    *   A single database.
+    *   A group of databases.
+*   This feature can streamline application support or database administration work for an entire fleet of databases.
+*   The jobs can be configured to run:
+    *   One time immediately.
+    *   At a future date.
+    *   On a scheduled, repeating interval.
+*   The results of the database jobs can be:
+    *   Viewed within the console.
+    *   Stored in OCI Object Storage.
+*   **Supported input for the jobs includes:**
+    *   Queries.
+    *   DML (Data Manipulation Language).
+    *   DDL (Data Definition Language).
+    *   PL/SQL.
