@@ -1,0 +1,118 @@
+### **1. Overview of the MySQL Database System Details Page**
+
+*   We will go over all essential management, monitoring, backup, performance, and maintenance activities for the MySQL database system.
+*   The MySQL Database System Details page lets you view and manage your database system.
+*   ==You can retrieve database system details using the OCI command line interface by providing the database system OCID to the OCI CLI command.==
+*   In this module, we will focus on using the OCI Console to work with the Database System Details page.
+*   This page is divided into two major sections, the information section and the resource section.
+
+### **2. Information Section Details**
+
+*   The database system information section shows the database system creation date.
+*   ==It shows the number of OCPUs allocated to the system.==
+*   ==It shows the maintenance window start time.==
+*   ==It shows the automatic backup window start time if backup is enabled.==
+*   From the Connection tab, it shows the private IP address of the database system.
+
+### **3. Resource Section Details**
+
+*   ==The resource section contains information about the fully qualified domain name of the database system.==
+*   ==It shows the system status.==
+*   ==It shows the HeatWave details if HeatWave clusters have been installed.==
+*   ==It shows MySQL database replication channel information.==
+*   We will discuss the metrics and backup details later on.
+
+### **4. Database System Status Definitions**
+
+*   You can see the status of the MySQL database system from the Details page.
+*   The status is a color-coded icon with associated text.
+*   Creating a yellow icon means resources are being reserved for the database system. The system is booting. And the initial database is being created.
+*   Provisioning can take several minutes. The system is not ready to use yet.
+*   Active and a green icon means the database system was successfully created and can now be used.
+*   Updating and yellow icon means the database system is in the process of starting, stopping, or restarting.
+*   This status is also used if a replication channel associated with the database system is updating.
+*   Inactive and a gray icon means the database system is powered off by the stop or reboot action in the console or API.
+*   Deleting and a yellow icon means the database system is being deleted by the terminate action in the console or API.
+*   Deleted and a gray icon means the database system has been deleted and is no longer available.
+*   Failed and a red icon means an error condition prevented the creation or continued operation of the database system.
+
+### **5. Top of Page Management Actions**
+
+*   At the top of the Details page, there are buttons to start, stop, or restart the database system.
+*   Start starts a stopped database system.
+*   After the database system is started, the stop action is enabled and the start option is disabled.
+*   Stop stops a running database system.
+*   After the database system is powered off, the start action is enabled.
+*   Restart shuts down a database system and restarts it.
+*   ==Remember, stopping a database system stops billing for all OCPUs associated with it.==
+*   ==Billing continues for storage.==
+*   ==Billing for OCPUs resumes if you restart the database system.==
+*   From the top of the Details page, there is also a button to edit the database system.
+*   You can edit the database system name, description, shape, configuration, and maintenance window start time.
+*   Finally, you can delete the database system from the Details page by clicking the More Actions button and selecting the Delete option.
+*   A dialog box will open. And it will ask you to confirm the deletion.
+*   Enter the word "DELETE" in all caps and click the Delete MySQL Database System button.
+*   When the delete process is done, the MySQL DB System will be set to Deleted status.
+
+### **6. Maintenance Process**
+
+*   ==The maintenance of MySQL database systems is an automatic process.==
+*   ==It patches the underlying operating system, the MySQL server itself, and any underlying hardware.==
+*   These tasks are performed during the maintenance window defined on the Database System Details page.
+*   If you did not define a maintenance window, one is defined for you automatically.
+*   When maintenance is performed, your database system status changes to Updating.
+*   And the database system becomes unavailable for a short time while the maintenance completes.
+*   The MySQL database systems maintenance is performed infrequently and only when necessary.
+*   This is usually for security or reliability issues.
+
+### **7. Monitoring with Metrics, Alarms, and Notifications**
+
+*   You can monitor the health, capacity, and performance of your Oracle Cloud Infrastructure MySQL HeatWave resources by using metrics, alarms, and notifications.
+*   ==The MySQL HeatWave metrics enable you to measure useful quantitative data about your MySQL databases, such as current connection information, statement activity and latency, host CPU, memory and disk I/O utilization, and so on.==
+*   You can use metrics data to diagnose and troubleshoot problems with MySQL databases.
+*   To use the metrics chart for a database system, go to its Details page under Resources and click Metrics.
+*   The metrics page displays a set of charts for the current MySQL database system.
+*   ==OCI monitoring service allows you to create alarms for keeping an eye on your MDS system behaviors that are interesting and significant for you.==
+*   The alarms allow you to focus time and energy on other important tasks instead of regularly monitoring the Resources page, metrics, and charts.
+*   ==Once you set the alarms, they use the OCI notification service to notify you about the selected events.==
+*   ==Notification service uses topics and subscriptions to send out notifications.==
+*   Messages are published to topics and then sent out to email, PagerDuty, Slack, HTTPS URLs, or Oracle functions.
+
+### **8. Performance Management Tools**
+
+*   ==Besides performance monitoring, Oracle Cloud Infrastructure provides other tools to help manage the performance of your MySQL database system.==
+*   ==They are known as MySQL configurations for database systems and supported MySQL shapes.==
+*   ==MySQL configurations for database systems are collections of MySQL variables which define the operation of the MySQL database system.==
+*   They are analogous to the my.ini or my.cnf files used in local installations of MySQL server.
+*   These default configurations come already built in OCI.
+*   The MySQL configurations for database system are linked to supported OCI shapes and include their associated configuration details.
+*   An OCI shape is a template that determines the number of OCPUs, amount of memory, and other resources that are allocated to a database system instance.
+*   From the Navigation menu, under Databases, and MySQL link, you can create a custom configuration by providing the compartment name, shape, and configuration variables.
+*   The configuration variables are MySQL server system variables.
+*   You can learn more about these variables from the MySQL manual.
+*   You can also edit and copy a custom MySQL configuration.
+*   It is not possible to edit an OCI default MySQL configuration.
+
+### **9. Backup Types and Methods**
+
+*   By backing up your MySQL HeatWave system, you can protect the database against loss if a failure occurs.
+*   By restoring from a backup, you can restore that database to its state at the time of the backup.
+*   Oracle Cloud Infrastructure provides MySQL HeatWave the following backup types.
+*   FULL: a backup of all data contained in the database system.
+*   INCREMENTAL: a backup of only the data which has been added or changed since the last full backup.
+*   Backups are run in either of the following ways.
+*   Manual: a backup initiated by an action in the console or request made through the API.
+*   ==Manual backups can be retained for a minimum of one day and a maximum of 365 days.==
+*   ==Currently, there is a limit of 100 manual backups per tenancy.==
+*   If you no longer want to manually backup your MySQL HeatWave system, simply update the MySQL HeatWave system and enable automatic backups.
+*   Automatic: scheduled backups that run without any required interaction at a time of the user's choosing.
+*   ==Automatic backups are retained for between 1 and 35 days.==
+*   The default retention value is 7 days.
+*   Once defined, it is not possible to edit the retention period of an automatic backup.
+
+### **10. Backup Policies and Configuration**
+
+*   ==To manually backup a MySQL database system using the OCI Console or command line interface, your user should have been granted the following policies: mysql-backups, mysql-instances, mysql-work-requests.==
+*   ==You can update a MySQL HeatWave backup's display name, description, and retention period from the Edit Backup page.==
+*   Suppose your MySQL HeatWave system automatically runs backups between midnight and 1:00 AM and you want to change the starting time to 4:00 AM, simply go to the MySQL Database System Details page and click the Edit Backup Configuration button.
+*   From that page, select the backup window and set the start time to 4:00 AM.
